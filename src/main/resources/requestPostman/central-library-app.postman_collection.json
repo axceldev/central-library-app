@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "a447d7c5-845f-49ea-a918-ce57bd7cf81b",
+		"name": "central-library-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26076891"
+	},
+	"item": [
+		{
+			"name": "book",
+			"item": [
+				{
+					"name": "saveNewBook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Cien años de soledad\",\r\n  \"author\": \"Gabriel García Márquez\",\r\n  \"year\": 1967,\r\n  \"publisher\": \"Editorial Sudamericana\",\r\n  \"cost\": 40000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/library/book",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"library",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllBook",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/library/book",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"library",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBookById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/library/book/11",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"library",
+								"book",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "getAllCustomer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/library/customer/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"library",
+								"customer",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/library/customer/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"library",
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomerByDocumentNumber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/library/customer/doc/123456789",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"library",
+								"customer",
+								"doc",
+								"123456789"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stock",
+			"item": [
+				{
+					"name": "findStockOfBook",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/library/stock/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"library",
+								"stock",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateQuantityOfBook",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/library/stock/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"library",
+								"stock",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "loan",
+			"item": [
+				{
+					"name": "createNewLoan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": 1,\r\n    \"bookId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/library/loan",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"library",
+								"loan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findBorrowBookByCustomerId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/library/loan/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"library",
+								"loan",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
