@@ -5,7 +5,9 @@ import com.axceldev.central_library.mapper.impl.BookRqToBook;
 import com.axceldev.central_library.models.dto.rq.BookRq;
 import com.axceldev.central_library.models.model.Book;
 import com.axceldev.central_library.repositories.BookRepository;
+import com.axceldev.central_library.utils.Message;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -26,8 +28,8 @@ public class BookService {
     }
 
     public Mono<Book> getBookById(Integer bookId) {
-
-        return bookRepository.findById(bookId);
-
+        return bookRepository
+                .findById(bookId)
+                .switchIfEmpty(Mono.error(new BusinessException(HttpStatus.NOT_FOUND, Boolean.FALSE, Message.BOOK_NOT_FOUND)));
     }
 }
