@@ -25,4 +25,12 @@ public class BookController {
     public Mono<List<Book>> getAllBook(){
         return bookService.getAllBook();
     }
+
+    @GetMapping("/book/{bookId}")
+    public Mono<Book> getBookById(@PathVariable("bookId") Integer bookId){
+        return bookService.getBookById(bookId);
+    }
+
+
+
 }

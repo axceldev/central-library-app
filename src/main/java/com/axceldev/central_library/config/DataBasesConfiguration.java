@@ -40,5 +40,6 @@ public class DataBasesConfiguration extends AbstractR2dbcConfiguration {
 
         return factoryInitializer;
     }
+
 }
 

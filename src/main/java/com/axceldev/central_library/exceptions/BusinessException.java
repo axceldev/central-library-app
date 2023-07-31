@@ -1,14 +1,22 @@
 package com.axceldev.central_library.exceptions;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import org.springframework.http.HttpStatus;
 
-public class BusinessException extends RuntimeException{
-    LocalDateTime currentDate;
+public class BusinessException extends Exception{
+    private HttpStatus code;
+    private Boolean status;
 
-    public BusinessException(String message) {
+    public BusinessException(HttpStatus code, Boolean status, String message) {
         super(message);
-        this.currentDate = LocalDateTime.now();
+        this.code = code;
+        this.status = status;
+    }
+
+    public HttpStatus getCode() {
+        return code;
+    }
+
+    public Boolean getStatus() {
+        return status;
     }
 }

@@ -1,5 +1,6 @@
 package com.axceldev.central_library.services;
 
+import com.axceldev.central_library.exceptions.BusinessException;
 import com.axceldev.central_library.mapper.impl.BookRqToBook;
 import com.axceldev.central_library.models.dto.rq.BookRq;
 import com.axceldev.central_library.models.model.Book;
@@ -22,5 +23,11 @@ public class BookService {
 
     public Mono<List<Book>> getAllBook() {
         return bookRepository.findAll().collectList();
+    }
+
+    public Mono<Book> getBookById(Integer bookId) {
+
+        return bookRepository.findById(bookId);
+
     }
 }
