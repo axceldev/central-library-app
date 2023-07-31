@@ -23,12 +23,12 @@ public class BookController {
 
     @GetMapping("/book")
     public Mono<List<Book>> getAllBook(){
-        return bookService.getAllBook();
+        return bookService.findAllBook();
     }
 
     @GetMapping("/book/{bookId}")
     public Mono<Book> getBookById(@PathVariable("bookId") Integer bookId){
-        return bookService.getBookById(bookId);
+        return bookService.findBookById(bookId);
     }
 
 

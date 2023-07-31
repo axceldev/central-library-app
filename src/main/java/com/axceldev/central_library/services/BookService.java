@@ -23,11 +23,11 @@ public class BookService {
         return bookRepository.save(new BookRqToBook().map(bookRq));
     }
 
-    public Mono<List<Book>> getAllBook() {
+    public Mono<List<Book>> findAllBook() {
         return bookRepository.findAll().collectList();
     }
 
-    public Mono<Book> getBookById(Integer bookId) {
+    public Mono<Book> findBookById(Integer bookId) {
         return bookRepository
                 .findById(bookId)
                 .switchIfEmpty(Mono.error(new BusinessException(HttpStatus.NOT_FOUND, Boolean.FALSE, Message.BOOK_NOT_FOUND)));
