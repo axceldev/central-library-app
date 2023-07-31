@@ -1,4 +1,4 @@
 create table if not exists books( book_id integer primary key auto_increment, title varchar(50) not null, author varchar(50) not null, year_published integer not null, publisher varchar(50) not null, cost double precision not null);
 create table if not exists customers( customer_id integer primary key auto_increment, document_number varchar(20) not null, first_name varchar(50) not null, last_name varchar(50) not null, email varchar(50) not null, phone varchar(10) not null);
-create table if not exists loans( loan_id integer primary key auto_increment, borrow_date date not null, return_date date not null, customer_id integer not null, book_id integer not null);
+create table if not exists loans( loan_id integer primary key auto_increment, borrow_date varchar(30) not null, return_date varchar(30) not null, customer_id integer not null, book_id integer not null);
 create table if not exists stock( stock_id integer primary key auto_increment, book_id integer not null, quantity integer not null, location varchar(20) not null);
